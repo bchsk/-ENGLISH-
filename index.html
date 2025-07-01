@@ -1,0 +1,409 @@
+<!DOCTYPE html>  
+<html lang="ar" dir="rtl">  
+<head>  
+  <meta charset="UTF-8" />  
+  <title>اختبار تحديد المستوى – وائل شليق</title>  
+  <!-- أيقونات وسائل التواصل -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
+  <style>  
+    /* الخلفية السوداء ونص أبيض افتراضي */  
+    body{  
+      font-family: Arial,Helvetica,sans-serif;  
+      background:#000;  
+      color:#fff;  
+      margin:40px;  
+      line-height:1.6;  
+      direction:rtl;  
+    }  
+    
+    /* شعار المدرسة */
+    .school-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding: 10px;
+      background: #111;
+      border-radius: 12px;
+      border: 1px solid #03a9f4;
+    }
+    .school-header i {
+      font-size: 28px;
+      color: #00c6ff;
+    }
+    .school-name {
+      font-size: 22px;
+      font-weight: bold;
+      color: #00c6ff;
+    }
+    
+    h1{text-align:center;margin-bottom:10px;color:#00c6ff;}  /* إدخال الاسم */  
+.input-name{  
+  display:flex;justify-content:center;align-items:center;  
+  margin-bottom:20px;gap:10px;  
+}  
+.input-name label{font-weight:bold;}  
+.input-name input{  
+  padding:8px 12px;border:1px solid #444;border-radius:8px;  
+  font-size:15px;width:220px;background:#111;color:#fff;  
+}  
+
+/* صندوق السؤال */  
+.question{  
+  background:#1a1a1a;  
+  padding:15px 20px;margin:12px 0;  
+  border-inline-start:5px solid #03a9f4;  
+  border-radius:12px;  
+  box-shadow:0 4px 8px rgba(0,0,0,.4);  
+}  
+.question p{font-weight:bold;margin:0 0 10px;color:#fff;}  
+.options label{display:block;margin:6px 0;cursor:pointer;color:#ddd;}  
+
+/* أزرار أنيقة */  
+button{  
+  display:inline-flex;align-items:center;gap:6px;justify-content:center;  
+  margin:15px 8px;padding:10px 28px;  
+  font-size:16px;font-weight:600;border:none;border-radius:9999px;  
+  cursor:pointer;transition:transform .2s,box-shadow .2s;  
+  color:#fff;background:linear-gradient(135deg,#007bff,#00c6ff);  
+  box-shadow:0 4px 10px rgba(0,0,0,.4);  
+}  
+button:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.6);}  
+button.btn-reset{background:linear-gradient(135deg,#555,#888);}  
+button.btn-whatsapp{background:#25D366;}  
+button.btn-messenger{background:#0084FF;}  
+
+/* نتيجة و قائمة الإجابات */  
+#result{  
+  margin-top:30px;padding:18px;border:1px solid #25D366;  
+  font-weight:bold;text-align:center;border-radius:12px;display:none;  
+  background:#0b3d1a;color:#8bffb5;  
+}  
+#answersList{  
+  margin-top:20px;background:#111;border:1px solid #444;  
+  padding:18px;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,.5);  
+  max-width:650px;margin-inline:auto;display:none;font-family:monospace;  
+  color:#eee;  
+}  
+#answersList p{margin:6px 0;}
+
+  </style>  
+</head>  
+<body>
+  <!-- شعار المدرسة -->
+  <div class="school-header">
+    <i class="fas fa-graduation-cap"></i>
+    <div class="school-name">Centre Alliance Formation</div>
+  </div>
+  
+  <h1>اختبار تحديد المستوى في اللغة الإنجليزية</h1>    <div class="input-name">  
+    <label>الاسم واللقب:</label>  
+    <input type="text" id="userName" placeholder="اكتب اسمك هنا" />  
+  </div>    <!-- الأسئلة الـ20 -->    <div id="questionsContainer">  <!-- 1 -->  
+<div class="question">  
+  <p>1. "What did you use to do on Sundays?"<br>"We would usually __________ to church in the morning."</p>  
+  <div class="options">  
+    <label><input type="radio" name="q1" value="A"> A. go</label>  
+    <label><input type="radio" name="q1" value="B"> B. went</label>  
+    <label><input type="radio" name="q1" value="C"> C. were going</label>  
+    <label><input type="radio" name="q1" value="D"> D. used to go</label>  
+  </div>  
+</div>  
+
+<!-- 2 -->  
+<div class="question">  
+  <p>2. I __________ reading a wonderful book about space travel.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q2" value="A"> A. just finish</label>  
+    <label><input type="radio" name="q2" value="B"> B. just do finish</label>  
+    <label><input type="radio" name="q2" value="C"> C. have just finished</label>  
+    <label><input type="radio" name="q2" value="D"> D. have just been finishing</label>  
+  </div>  
+</div>  
+
+<!-- 3 -->  
+<div class="question">  
+  <p>3. It was the first time we __________ to a Mexican restaurant.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q3" value="A"> A. go</label>  
+    <label><input type="radio" name="q3" value="B"> B. went</label>  
+    <label><input type="radio" name="q3" value="C"> C. have been</label>  
+    <label><input type="radio" name="q3" value="D"> D. had ever been</label>  
+  </div>  
+</div>  
+
+<!-- 4 -->  
+<div class="question">  
+  <p>4. "Can you come out to play?" "No, we __________ dinner at the moment."</p>  
+  <div class="options">  
+    <label><input type="radio" name="q4" value="A"> A. have</label>  
+    <label><input type="radio" name="q4" value="B"> B. are having</label>  
+    <label><input type="radio" name="q4" value="C"> C. have had</label>  
+    <label><input type="radio" name="q4" value="D"> D. have been having</label>  
+  </div>  
+</div>  
+
+<!-- 5 -->  
+<div class="question">  
+  <p>5. How much __________ to get into the arena?</p>  
+  <div class="options">  
+    <label><input type="radio" name="q5" value="A"> A. it costs</label>  
+    <label><input type="radio" name="q5" value="B"> B. costs it</label>  
+    <label><input type="radio" name="q5" value="C"> C. does it cost</label>  
+    <label><input type="radio" name="q5" value="D"> D. does it costs</label>  
+  </div>  
+</div>  
+
+<!-- 6 -->  
+<div class="question">  
+  <p>6. It's only the second time I __________ a job interview.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q6" value="A"> A. have</label>  
+    <label><input type="radio" name="q6" value="B"> B. am having</label>  
+    <label><input type="radio" name="q6" value="C"> C. have had</label>  
+    <label><input type="radio" name="q6" value="D"> D. have been having</label>  
+  </div>  
+</div>  
+
+<!-- 7 -->  
+<div class="question">  
+  <p>7. What did you do while __________ for the others to come?</p>  
+  <div class="options">  
+    <label><input type="radio" name="q7" value="A"> A. were you waiting</label>  
+    <label><input type="radio" name="q7" value="B"> B. you were waiting</label>  
+    <label><input type="radio" name="q7" value="C"> C. had you been waiting</label>  
+    <label><input type="radio" name="q7" value="D"> D. you had been waiting</label>  
+  </div>  
+</div>  
+
+<!-- 8 -->  
+<div class="question">  
+  <p>8. Don't you think Sam __________ just like his father?</p>  
+  <div class="options">  
+    <label><input type="radio" name="q8" value="A"> A. looks</label>  
+    <label><input type="radio" name="q8" value="B"> B. is looking</label>  
+    <label><input type="radio" name="q8" value="C"> C. has been looking</label>  
+    <label><input type="radio" name="q8" value="D"> D. had been looking</label>  
+  </div>  
+</div>  
+
+<!-- 9 -->  
+<div class="question">  
+  <p>9. "Shall we meet at seven o'clock?" "No, I'll still __________ then."</p>  
+  <div class="options">  
+    <label><input type="radio" name="q9" value="A"> A. work</label>  
+    <label><input type="radio" name="q9" value="B"> B. have worked</label>  
+    <label><input type="radio" name="q9" value="C"> C. be working</label>  
+    <label><input type="radio" name="q9" value="D"> D. have been working</label>  
+  </div>  
+</div>  
+
+<!-- 10 -->  
+<div class="question">  
+  <p>10. Call me as soon as you __________ your test results.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q10" value="A"> A. get</label>  
+    <label><input type="radio" name="q10" value="B"> B. will get</label>  
+    <label><input type="radio" name="q10" value="C"> C. will have got</label>  
+    <label><input type="radio" name="q10" value="D"> D. will be getting</label>  
+  </div>  
+</div>  
+
+<!-- 11 -->  
+<div class="question">  
+  <p>11. There are a __________ web sites dealing with this issue.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q11" value="A"> A. lots</label>  
+    <label><input type="radio" name="q11" value="B"> B. lots of</label>  
+    <label><input type="radio" name="q11" value="C"> C. lot</label>  
+    <label><input type="radio" name="q11" value="D"> D. lot of</label>  
+  </div>  
+</div>  
+
+<!-- 12 -->  
+<div class="question">  
+  <p>12. I don't believe __________ ghosts!</p>  
+  <div class="options">  
+    <label><input type="radio" name="q12" value="A"> A. at</label>  
+    <label><input type="radio" name="q12" value="B"> B. for</label>  
+    <label><input type="radio" name="q12" value="C"> C. in</label>  
+    <label><input type="radio" name="q12" value="D"> D. on</label>  
+  </div>  
+</div>  
+
+<!-- 13 -->  
+<div class="question">  
+  <p>13. What time __________?</p>  
+  <div class="options">  
+    <label><input type="radio" name="q13" value="A"> A. the train will leave</label>  
+    <label><input type="radio" name="q13" value="B"> B. does the train leave</label>  
+    <label><input type="radio" name="q13" value="C"> C. will the train have been leaving</label>  
+    <label><input type="radio" name="q13" value="D"> D. is leaving the train</label>  
+  </div>  
+</div>  
+
+<!-- 14 -->  
+<div class="question">  
+  <p>14. When I __________, I want to be a journalist.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q14" value="A"> A. grow up</label>  
+    <label><input type="radio" name="q14" value="B"> B. am growing up</label>  
+    <label><input type="radio" name="q14" value="C"> C. will grow up</label>  
+    <label><input type="radio" name="q14" value="D"> D. am going to grow up</label>  
+  </div>  
+</div>  
+
+<!-- 15 -->  
+<div class="question">  
+  <p>15. By eight o'clock tonight, __________ computer games for over twelve hours!</p>  
+  <div class="options">  
+    <label><input type="radio" name="q15" value="A"> A. you'll play</label>  
+    <label><input type="radio" name="q15" value="B"> B. you'll be playing</label>  
+    <label><input type="radio" name="q15" value="C"> C. you have played</label>  
+    <label><input type="radio" name="q15" value="D"> D. you'll have been playing</label>  
+  </div>  
+</div>  
+
+<!-- 16 -->  
+<div class="question">  
+  <p>16. "Are you still taking your exams?" "Yes, but by this time next week __________ my last one!"</p>  
+  <div class="options">  
+    <label><input type="radio" name="q16" value="A"> A. I'm finishing</label>  
+    <label><input type="radio" name="q16" value="B"> B. I'll finish</label>  
+    <label><input type="radio" name="q16" value="C"> C. I'll have finished</label>  
+    <label><input type="radio" name="q16" value="D"> D. I'll have been finishing</label>  
+  </div>  
+</div>  
+
+<!-- 17 -->  
+<div class="question">  
+  <p>17. Denise is about __________ me.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q17" value="A"> A. younger than two years</label>  
+    <label><input type="radio" name="q17" value="B"> B. two years younger than</label>  
+    <label><input type="radio" name="q17" value="C"> C. younger two years than</label>  
+    <label><input type="radio" name="q17" value="D"> D. two years than younger</label>  
+  </div>  
+</div>  
+
+<!-- 18 -->  
+<div class="question">  
+  <p>18. If you __________ iron, it starts to get red hot and then white hot.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q18" value="A"> A. would heat</label>  
+    <label><input type="radio" name="q18" value="B"> B. heated</label>  
+    <label><input type="radio" name="q18" value="C"> C. heat</label>  
+    <label><input type="radio" name="q18" value="D"> D. will heat</label>  
+  </div>  
+</div>  
+
+<!-- 19 -->  
+<div class="question">  
+  <p>19. "How are you getting to Rome?" "It's __________ expensive for us to go by plane, so we're taking the train."</p>  
+  <div class="options">  
+    <label><input type="radio" name="q19" value="A"> A. such</label>  
+    <label><input type="radio" name="q19" value="B"> B. enough</label>  
+    <label><input type="radio" name="q19" value="C"> C. too</label>  
+    <label><input type="radio" name="q19" value="D"> D. that</label>  
+  </div>  
+</div>  
+
+<!-- 20 -->  
+<div class="question">  
+  <p>20. The man could have been sent to prison if the judge __________ his story.</p>  
+  <div class="options">  
+    <label><input type="radio" name="q20" value="A"> A. wouldn't have believed</label>  
+    <label><input type="radio" name="q20" value="B"> B. wasn't believing</label>  
+    <label><input type="radio" name="q20" value="C"> C. wouldn't believe</label>  
+    <label><input type="radio" name="q20" value="D"> D. hadn't believed</label>  
+  </div>  
+</div>
+
+  </div><!-- /questionsContainer -->    <div style="text-align:center;">  
+    <button id="btnCalc">احسب الدرجة</button>  
+    <button class="btn-reset" onclick="location.reload()">إعادة الاختبار</button>  
+    <button id="btnWA" class="btn-whatsapp" style="display:none;">  
+      <i class="fa-brands fa-whatsapp fa-lg"></i> إرسال عبر واتساب  
+    </button>  
+    <button id="btnMessenger" class="btn-messenger" style="display:none;">  
+      <i class="fa-brands fa-facebook-messenger fa-lg"></i> إرسال عبر مسنجر  
+    </button>  
+  </div>    <div id="result"></div>  
+  <div id="answersList"></div>    <script>  
+    /* الإجابات الصحيحة */  
+    const answers = {  
+      q1:'A',q2:'C',q3:'D',q4:'B',q5:'C',  
+      q6:'C',q7:'B',q8:'A',q9:'C',q10:'A',  
+      q11:'B',q12:'C',q13:'B',q14:'A',q15:'D',  
+      q16:'C',q17:'B',q18:'C',q19:'C',q20:'D'  
+    };  
+  
+    const btnCalc = document.getElementById('btnCalc');  
+    const btnWA   = document.getElementById('btnWA');  
+    const btnMessenger = document.getElementById('btnMessenger');  
+    const resultDiv = document.getElementById('result');  
+    const answersDiv = document.getElementById('answersList');  
+  
+    btnCalc.addEventListener('click', () => {  
+      const userName = document.getElementById('userName').value.trim();  
+      if(!userName){  
+        alert('يرجى إدخال الاسم واللقب قبل حساب الدرجة');  
+        return;  
+      }  
+  
+      let score = 0;  
+      let answersText = '';  
+      let htmlAnswers = '';  
+  
+      /* التحقق من كل سؤال */  
+      for(const q of Object.keys(answers)){  
+        const radios = document.getElementsByName(q);  
+        let selected = null;  
+  
+        for(const r of radios){  
+          if(r.checked){ selected = r.value; break; }  
+        }  
+  
+        if(!selected){  
+          alert(`يرجى الإجابة على السؤال رقم ${q.substring(1)}`);  
+          return;  
+        }  
+  
+        if(selected === answers[q]) score++;  
+        answersText += `السؤال ${q.substring(1)}: ${selected}\\n`;  
+        htmlAnswers += `<p>السؤال ${q.substring(1)}: ${selected}</p>`;  
+      }  
+  
+      /* عرض النتيجة والإجابات */  
+      resultDiv.textContent = `${userName} — درجتك: ${score} / 20`;  
+      resultDiv.style.display = 'block';  
+      answersDiv.innerHTML = htmlAnswers;  
+      answersDiv.style.display = 'block';  
+  
+      /* إعداد نص المشاركة للواتساب ومسنجر */  
+      window.shareText = `اسمي: ${userName}\\nدرجتي: ${score} / 20\\nإجاباتي:\\n${answersText}`;  
+      btnWA.style.display = 'inline-flex';  
+      btnMessenger.style.display = 'inline-flex';  
+    });  
+  
+    btnWA.addEventListener('click', () => {  
+      if(!window.shareText){  
+        alert('يرجى حساب الدرجة أولاً');  
+        return;  
+      }  
+      const url = `https://wa.me/?text=${encodeURIComponent(window.shareText)}`;  
+      window.open(url, '_blank');  
+    });  
+
+    btnMessenger.addEventListener('click', () => {
+      if(!window.shareText){
+        alert('يرجى حساب الدرجة أولاً');
+        return;
+      }
+      const url = `https://www.facebook.com/dialog/send?link=${encodeURIComponent(window.location.href)}&app_id=1382420412001443&redirect_uri=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(window.shareText)}`;
+      window.open(url, '_blank', 'width=600,height=400');
+    });
+  </script>  
+</body>  
+</html>
